@@ -42,15 +42,15 @@ classes = {'daniel_craig': 31, 'cary_grant': 25, 'nikola_tesla': 79,
 
 classes = {str(v): k for k, v in classes.iteritems()}
 
-model = load_model("idk.h5")
+model = load_model("kardashian3.h5")
 
 file = open("preds.csv", "w")
 file.write("image_label,celebrity_name\n")
 
 for filename in os.listdir(val_data_dir):
 	img = cv2.imread(os.path.join(val_data_dir, filename))
-	img = cv2.resize(img, (120, 120))
-	img = np.reshape(img, [1, 120, 120, 3])
+	img = cv2.resize(img, (160, 160))
+	img = np.reshape(img, [1, 160, 160, 3])
 	pred = model.predict(img)
 	pred = np.argmax(pred)
 	celeb = classes[str(pred)]
