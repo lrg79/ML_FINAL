@@ -2,6 +2,7 @@ import os
 import sys
 import pickle
 import time
+import cv2
 
 import numpy as np
 from keras.models import Sequential
@@ -51,18 +52,12 @@ train_generator = train_datagen.flow_from_directory(
 									target_size=(120, 120),
 									batch_size=32,
 									class_mode="categorical")
+
+classes = train_generator.class_indices
+# print(classes)
+
 model.fit_generator(
 		train_generator,
 		epochs=10)
 
-# model.save("idk.h5")
-
-file = open("preds.csv", "w")
-
-for filename in os.listdir(val_data_dir):
-	img = cv2.imread(os.path.join(val_data_dir, filename))
-	pred = model.predict(img)
-	file.write(str(filename) + "," + pred)
-
-file.close()
-
+model.save("idk.h5")
