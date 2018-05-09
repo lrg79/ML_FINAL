@@ -40,7 +40,7 @@ classes = {'daniel_craig': 31, 'cary_grant': 25, 'nikola_tesla': 79,
 		   'bruce_willis': 22, 'drew_barrymore': 35, 'scarlett_johansson': 88, 
 		   'mariah_carey': 67, 'ariana_grande': 9}
 
-classes = {str(v): k for k, v in classes.iteritems()}
+classes = {str(v): k for k, v in classes.items()}
 
 model = load_model("kardashian3.h5")
 
