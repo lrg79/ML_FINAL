@@ -1,7 +1,7 @@
 from os import listdir
 from os.path import isfile, join
 
-total_files = [f for f in listdir("Datasets/test/images-val-pub") if isfile(join("Datasets/test/images-val-pub/", f))]
+total_files = [f for f in listdir("Datasets/test-final/images-test-pub") if isfile(join("Datasets/test-final/images-test-pub/", f))]
 
 classified = {}
 
